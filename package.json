@@ -10,7 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/tailwind": "^5.0.2",
+    "@fontsource/poppins": "^5.0.8",
     "astro": "^3.4.3",
+    "tailwindcss": "^3.0.24",
     "typescript": "^5.2.2"
   }
 }
