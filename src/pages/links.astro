@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import AlbaniahLogo from "../assets/albaniah logo.png";
+import MainLayout from "../layouts/main-layout.astro";
+import LinkTreeBtn from "../components/linktree-btn.astro";
+import ShopeeIcon from "../components/brands/shopee-icon.astro";
+import WebshopIcon from "../components/brands/webshop-icon.astro";
+import LazadaIcon from "../components/brands/lazada-icon.astro";
+import WhatsappIcon from "../components/brands/whatsapp-icon.astro";
+import TokopediaIcon from "../components/brands/tokopedia-icon.astro";
+---
+
+<MainLayout>
+  <div class="container my-10 mx-auto px-4 md:max-w-xl space-y-8">
+    <div class="flex flex-col justify-center items-center uppercase space-y-6">
+      <Image src={AlbaniahLogo} alt="Albaniah Logo" class="w-16 md:w-20" />
+      <div class="text-center">
+        <h1 class="text-xl tracking-widest font-bold">Albaniah Mukena</h1>
+        <p class="font-xs tracking-wider text-gray-500">Temani Ibadahmu</p>
+      </div>
+    </div>
+    <div class="flex flex-col uppercase tracking-wide gap-y-6">
+      <LinkTreeBtn
+        url="#"
+        label="Webshop"
+        sublabel="Gratis Ongkir, Diskon Gede"
+      >
+        <div class="border border-gray-700 rounded-full p-1">
+          <WebshopIcon width={23} height={23} color="#374151" />
+        </div>
+      </LinkTreeBtn>
+      <LinkTreeBtn url="#" label="Shopee">
+        <div class="border border-gray-700 rounded-full p-1">
+          <ShopeeIcon width={23} height={23} color="#374151" />
+        </div>
+      </LinkTreeBtn>
+      <LinkTreeBtn url="#" label="Whatsapp">
+        <div class="border border-gray-700 rounded-full p-1">
+          <WhatsappIcon width={23} height={23} color="#374151" />
+        </div>
+      </LinkTreeBtn>
+      <LinkTreeBtn url="#" label="Lazada">
+        <div class="border border-gray-700 rounded-full p-1">
+          <LazadaIcon width={23} height={23} color="#374151" />
+        </div>
+      </LinkTreeBtn>
+      <LinkTreeBtn url="#" label="Tokopedia">
+        <div class="border border-gray-700 rounded-full p-1">
+          <TokopediaIcon width={23} height={23} color="#374151" />
+        </div>
+      </LinkTreeBtn>
+    </div>
+  </div>
+</MainLayout>
