@@ -2,12 +2,52 @@
 import { Image } from "astro:assets";
 import AlbaniahLogo from "../assets/albaniah logo.png";
 import MainLayout from "../layouts/main-layout.astro";
-import LinkTreeBtn from "../components/linktree-btn.astro";
-import ShopeeIcon from "../components/brands/shopee-icon.astro";
-import WebshopIcon from "../components/brands/webshop-icon.astro";
-import LazadaIcon from "../components/brands/lazada-icon.astro";
-import WhatsappIcon from "../components/brands/whatsapp-icon.astro";
-import TokopediaIcon from "../components/brands/tokopedia-icon.astro";
+import LinkTreeBtn from "../components/linktree-btn.tsx";
+import type { BrandName } from "../components/brands/brand-name-type";
+// import ShopeeIcon from "../components/brands/shopee-icon.astro";
+// import WebshopIcon from "../components/brands/webshop-icon.astro";
+// import LazadaIcon from "../components/brands/lazada-icon.astro";
+// import WhatsappIcon from "../components/brands/whatsapp-icon.astro";
+// import TokopediaIcon from "../components/brands/tokopedia-icon.astro";
+
+type Link = {
+  url: string;
+  label: string;
+  sublabel?: string;
+  brandName: BrandName;
+};
+
+type Linktree = Link[];
+
+const linksData: Linktree = [
+  {
+    url: "https://albaniah.shop/",
+    label: "Webshop",
+    sublabel: "Gratis Ongkir*, Diskon Gede",
+    brandName: "webshop",
+  },
+  {
+    url: "https://wa.me/6285846513022",
+    label: "Whatsapp",
+    sublabel: "Orderanya Mudah - Gratis Ongkir*, Diskon Gede",
+    brandName: "whatsapp",
+  },
+  {
+    url: "https://shopee.co.id/al_baniah.mukena28",
+    label: "Shopee",
+    brandName: "shopee",
+  },
+  {
+    url: "https://www.lazada.co.id/shop/al-baniah-mukena",
+    label: "Lazada",
+    brandName: "lazada",
+  },
+  {
+    url: "https://www.tokopedia.com/albaniahmukena",
+    label: "Tokopedia",
+    brandName: "tokopedia",
+  },
+];
 ---
 
 <MainLayout>
@@ -20,39 +60,16 @@ import TokopediaIcon from "../components/brands/tokopedia-icon.astro";
       </div>
     </div>
     <div class="flex flex-col uppercase tracking-wide gap-y-5">
-      <LinkTreeBtn
-        url="#"
-        label="Webshop"
-        sublabel="Gratis Ongkir*, Diskon Gede"
-      >
-        <div class="border border-gray-700 rounded-full p-1">
-          <WebshopIcon width={23} height={23} color="#374151" />
-        </div>
-      </LinkTreeBtn>
-      <LinkTreeBtn
-        url="#"
-        label="Whatsapp"
-        sublabel="Orderanya Mudah - Gratis Ongkir*, Diskon Gede"
-      >
-        <div class="border border-gray-700 rounded-full p-1">
-          <WhatsappIcon width={23} height={23} color="#374151" />
-        </div>
-      </LinkTreeBtn>
-      <LinkTreeBtn url="#" label="Shopee">
-        <div class="border border-gray-700 rounded-full p-1">
-          <ShopeeIcon width={23} height={23} color="#374151" />
-        </div>
-      </LinkTreeBtn>
-      <LinkTreeBtn url="#" label="Lazada">
-        <div class="border border-gray-700 rounded-full p-1">
-          <LazadaIcon width={23} height={23} color="#374151" />
-        </div>
-      </LinkTreeBtn>
-      <LinkTreeBtn url="#" label="Tokopedia">
-        <div class="border border-gray-700 rounded-full p-1">
-          <TokopediaIcon width={23} height={23} color="#374151" />
-        </div>
-      </LinkTreeBtn>
+      {
+        linksData.map((item) => (
+          <LinkTreeBtn
+            url={item.url}
+            label={item.label}
+            sublabel={item.sublabel}
+            brandName={item.brandName}
+          />
+        ))
+      }
     </div>
   </div>
 </MainLayout>
